@@ -3,12 +3,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageTitle = "Home Page";
 
-import Greeting from '../components/Greeting';
+import '../styles/homepage.css';
 ---
 
 <BaseLayout>
 
-    
+<div class="wrapper">
+    <div class="container">
+      <div class="inner-primary"><h1 class="Tittle">Welcome</h1></div>
+      <div class="inner-rest"><p class="WelcomeText">My name is Samuel Fisher, I am a programmer based in Dunedin NZ. I currently Specialize in C++ and unreal engine</p></div>
+    </div>
+  </div>
+
 </BaseLayout>
 
 </html>

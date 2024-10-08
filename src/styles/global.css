@@ -6,19 +6,14 @@ html {
   body {
     margin: 0 auto;
     width: 100%;
-    max-width: 80ch;
     padding: 1rem;
-    line-height: 1.5;
+    
   }
   
   * {
     box-sizing: border-box;
   }
   
-  h1 {
-    margin: 1rem 0;
-    font-size: 2.5rem;
-  }
 
   /* nav styles */
 
@@ -33,7 +28,7 @@ html {
   
   .nav-links a {
     display: block;
-    text-align: center;
+    text-align: left;
     padding: 10px 0;
     text-decoration: none;
     font-size: 1.2rem;
@@ -64,25 +59,15 @@ html {
   }
   
   @media screen and (min-width: 636px) {
-    .nav-links {
-      margin-left: 5em;
-      display: block;
-      position: static;
-      width: auto;
-      background: none;
-    }
-  
-    .nav-links a {
-      display: inline-block;
-      padding: 15px 20px;
-    }
-
-    .hamburger {
-        display: none;
-      }
+    
   }
 
-  
+  footer
+  {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+  }
 
  /* Dark styles */
   html.dark {
@@ -92,4 +77,17 @@ html {
   
   .dark .nav-links a {
     color: #fff;
+  }
+
+
+  .column {
+    float: left;
+    padding: 5px;
+  }
+  
+  /* Clear floats after image containers */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
   }

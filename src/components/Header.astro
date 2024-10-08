@@ -5,8 +5,10 @@ import ThemeIcon from './ThemeIcon.astro';
 ---
 <header>
   <nav>
-    <Hamburger />
-    <ThemeIcon />
+    <div class="row">
+      <div class="column"><Hamburger /></div>
+      <div class="column"><ThemeIcon /></div>
+    </div>
     <Navigation />
   </nav>
 </header>
