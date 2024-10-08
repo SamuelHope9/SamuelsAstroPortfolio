@@ -1,0 +1,43 @@
+
+
+  /* Welcome div stuff */
+.Tittle {
+    font-size: 6rem;
+    margin: 0%;
+    line-height: 0.7;
+  }
+
+  .WelcomeText
+  {
+    line-height: 1.5;
+  }
+
+.container {
+    width: fit-content; 
+    display: table;  
+    margin-left: 15%;
+}
+
+.inner-primary {
+    display: block; 
+    
+}
+
+.inner-rest {
+    display: table-caption; 
+    caption-side: bottom; 
+}
+
+
+
+
+
+  html
+  {
+    background-color:#fff;
+  }
+  /* Dark styles */
+  html.dark {
+    background-color: #0d0950;
+    color: #fff;
+  }
