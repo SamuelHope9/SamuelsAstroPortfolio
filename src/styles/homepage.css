@@ -1,5 +1,6 @@
 
 
+
   /* Welcome div stuff */
 .Tittle {
     font-size: 6rem;
@@ -9,13 +10,15 @@
 
   .WelcomeText
   {
-    line-height: 1.5;
+    line-height: 1.2;
+    font-size: 1.25rem;
   }
 
 .container {
     width: fit-content; 
     display: table;  
     margin-left: 15%;
+    margin-top: 8.5%;
 }
 
 .inner-primary {
@@ -28,8 +31,25 @@
     caption-side: bottom; 
 }
 
+/* Laptop image stuff */
+.welcome-laptop-parent
+{
+  text-align: center;
+  
+}
 
+.wrapper
+{
+  display: inline-block;
+  vertical-align: middle;
+  padding: 1rem 1rem;
+}
 
+.laptop-image
+{
+  display: inline-block;
+  vertical-align: middle;
+}
 
 
   html
