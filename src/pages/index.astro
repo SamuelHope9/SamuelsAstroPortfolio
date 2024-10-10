@@ -4,24 +4,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const pageTitle = "Home Page";
 
 import '../styles/homepage.css';
-import localLaptopImage from '../images/971.jpg';
+import localLaptopImage from '../images/LaptopTransparent.png';
 ---
 
 <BaseLayout>
+<div class="home-page">
+  <div class="page">
+    <div class="welcome-laptop-parent">
+      <div class="wrapper">
+        <div class="container">
+          <div class="inner-primary"><h1 class="Tittle">Welcome</h1></div>
+          <div class="inner-rest"><p class="WelcomeText">My name is Samuel Fisher, I am a programmer based in Dunedin NZ. I currently Specialize in C++ and Unreal Engine. I also enjoy indoor climbing,Snowboarding and boardgames.</p></div>
+        </div>
 
-<div class="welcome-laptop-parent">
-<div class="wrapper">
-    <div class="container">
-      <div class="inner-primary"><h1 class="Tittle">Welcome</h1></div>
-      <div class="inner-rest"><p class="WelcomeText">My name is Samuel Fisher, I am a programmer based in Dunedin NZ. I currently Specialize in C++ and Unreal Engine. I also enjoy indoor climbing,Snowboarding and boardgames.</p></div>
+      
+      </div>
+        <div class="wrapper" style="margin-left:10%">
+          <img src={localLaptopImage.src} alt="Laptop with code">
+        </div>
     </div>
-
-    
-</div>
-  <div class="wrapper" style="margin-left:10%">
-    <img src={localLaptopImage.src} width="500" height="500" alt="Laptop with code">
   </div>
-</div>
+  <div class="page">
+    <ul class="blog-container">
+    </ul>
+  </div>
+  <div class="page"></div>
+  <div class="page"></div>
 </div>
 
 </BaseLayout>

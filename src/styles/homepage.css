@@ -1,6 +1,4 @@
 
-
-
   /* Welcome div stuff */
 .Tittle {
     font-size: 6rem;
@@ -51,13 +49,17 @@
   vertical-align: middle;
 }
 
+ /* Page layout */
+.page {
+  height: 100vh;
+}
 
-  html
-  {
-    background-color:#fff;
-  }
   /* Dark styles */
   html.dark {
     background-color: #0d0950;
     color: #fff;
+  }
+  html
+  {
+    background-color:#fff;
   }
