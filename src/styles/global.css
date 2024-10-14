@@ -1,7 +1,4 @@
-html {
-    background-color: #f1f5f9;
-    font-family: sans-serif;
-  }
+
   
   body {
     margin: 0 auto;
@@ -69,9 +66,17 @@ html {
     bottom: 0;
   }
 
+  html {
+    background: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+    font-family: sans-serif;
+
+    scroll-snap-type: y mandatory;
+  }
+
  /* Dark styles */
   html.dark {
-    background-color: #0d0950;
+    background:linear-gradient(to top, #112f68 0%, #1f0342 100%);
+    /*background:linear-gradient(to top, #30cfd0 0%, #330867 100%);*/
     color: #fff;
   }
   
@@ -80,6 +85,9 @@ html {
   }
 
 
+
+
+   /* Todo check what this is and move it */
   .column {
     float: left;
     padding: 5px;
