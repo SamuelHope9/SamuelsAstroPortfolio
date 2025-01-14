@@ -29,9 +29,14 @@ if (Astro.request.method === "POST") {
 ---
 
 <style>
+  @import '../styles/contactForm.css';
 </style>
 
-<form method="POST">
+<div>
+  <div id="contact-container">
+  <h1 style="text-align: center;">Send me a message!</h1>
+  <pre>Got a question or just want to say hello? Go ahead.</pre>
+  <form method="POST">
     <label>
         Name
         <input type="text" id="name" name="name" required />
@@ -40,11 +45,14 @@ if (Astro.request.method === "POST") {
         Email
         <input type="email" id="email" name="email" required />
     </label>
+    <br/>
     <label>
         Message
         <textarea id="message" name="message" required />
     </label>
     <button>Send</button>
 </form>
+</div>
+</div>
 
 
