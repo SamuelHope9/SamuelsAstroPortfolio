@@ -1,0 +1,30 @@
+.hideme
+{
+    display: hidden;
+}
+
+.skills-box-Parent
+{
+    min-height: 75px;
+    width: 75px;
+    position: relative;
+}
+
+.skills-box:hover .hideme {
+    display: block;
+  }
+
+.skills-box
+{
+    min-height: 75px;
+    margin: 10px;
+    position: absolute;
+    z-index: 10;
+
+    transition: 0.2s height linear;
+    :hover
+    {
+        transform: scale(1.3,1.3);
+    }
+}
+

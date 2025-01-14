@@ -1,0 +1,16 @@
+---
+const { experianceTitle } = Astro.props;
+const { experianceLocation } = Astro.props;
+const { experianceDate } = Astro.props;
+---
+
+
+<style>
+@import '../styles/experianceBox.css';
+</style>
+
+<div class="experiance-box">
+  <p style="margin-left: 5%;  display:inline-block; font-weight:bold;font-size: 1.1em;">{experianceTitle}</p>
+  <p style="margin-right: 5%; float:right; font-weight:bold;font-size: 1.1em;">{experianceLocation}</p>
+  <p style="margin-right: 5%; clear:right; float:right;margin-top:0px;font-size: 0.8em;">{ experianceDate }</p>
+</div>

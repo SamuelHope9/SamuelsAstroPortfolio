@@ -1,46 +1,121 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+import ExperianceBox from '../components/ExperianceBox.astro';
+import SkillsBox from '../components/SkillsBox.astro';
+import ContactForm from '../components/ContactForm.astro'
+import Carousel from '../components/Carousel.astro'
+
 const pageTitle = "Home Page";
 
 import '../styles/homepage.css';
-import localLaptopImage from '../images/LaptopTransparent.png';
+import localLaptopImage from "../images/LaptopTransparent.png";
+
+
+import IconCPlusPlus from "../images/SkillIcons/Icon-CPlusPlus.png";
+import IconAgile from "../images/SkillIcons/Icon-Agile.png";
+import IconC from "../images/SkillIcons/Icon-C.png";
+import IconCSharp from "../images/SkillIcons/Icon-CSharp.png";
+import IconGithub from "../images/SkillIcons/Icon-Github.png";
+import IconGodot from "../images/SkillIcons/Icon-Godot.png";
+import IconJava from "../images/SkillIcons/Icon-Java.png";
+import IconJavaScript from "../images/SkillIcons/Icon-JavaScript.png";
+import IconPerforce from "../images/SkillIcons/Icon-Perforce.png";
+import IconPHP from "../images/SkillIcons/Icon-PHP.png";
+import IconPython from "../images/SkillIcons/Icon-Python.png";
+import IconSQL from "../images/SkillIcons/Icon-Sql.png";
+import IconSVN from "../images/SkillIcons/Icon-SVN.png";
+import IconUnrealEngine from "../images/SkillIcons/Icon-UnrealEngine.png";
+
 ---
+
+
 
 <BaseLayout>
 <div class="home-page">
+  
+  <section id="home">
   <div class="page">
     <div class="welcome-laptop-parent">
-      <div class="wrapper">
+      <div class="welcome-wrapper">
         <div class="container">
           <div class="inner-primary"><h1 class="Tittle">Welcome</h1></div>
-          <div class="inner-rest"><p class="WelcomeText">My name is Samuel Fisher, I am a programmer based in Dunedin NZ. I currently Specialize in C++ and Unreal Engine. I enjoy indoor climbing,Snowboarding and boardgames.</p></div>
+          <div class="inner-rest"><p class="WelcomeText">My name is Samuel Fisher, I am a programmer based in Dunedin NZ. I currently Specialize in C++ and Unreal Engine.</p></div>
         </div>
       </div>
-        <div class="wrapper" style="margin-left:10%">
+        <div class="welcome-wrapper laptop-wrapper">
           <img src={localLaptopImage.src} alt="Laptop with code">
         </div>
     </div>
   </div>
+</section>
+
+<section id="experiance">
   <div class="page">
-    <h1>Blog</h1>
-    <ul class="blog-container">
-    </ul>
+    <div id="experiance-container">
+      
+      <div id="experiance">
+        <div id="experiance-flex-box">
+          <h2 style="text-align:center; margin-top: 0%;">Experiance</h2>
+          <ExperianceBox experianceTitle={"Intermediate developer"} experianceLocation={"Gfactor"} experianceDate="2023 - Present"/>
+          <ExperianceBox experianceTitle={"Junior developer"} experianceLocation={"Gfactor"} experianceDate="2019 - 2023"/>
+          <ExperianceBox experianceTitle={"Intern developer"} experianceLocation={"Gfactor"} experianceDate="2018 - 2019"/>
+          <ExperianceBox experianceTitle={"Bachelor of Information technology"} experianceLocation={"Otago Polytechnic"} experianceDate="2015 - 2018"/>
+        </div>
+      </div>
+      <div id="divider">
+      </div>
+      <div id="skills">
+        <h2 style="text-align:center; margin-top: 0%;">Skills</h2>
+        <div>
+          <div id="skills-ul">
+            <div class="skills-li"><SkillsBox mobileImgUrl={IconCPlusPlus} desktopImgUrl={IconCPlusPlus} alt="IconCPlusPlus"/></div>
+            <div class="skills-li"><SkillsBox mobileImgUrl={IconC} desktopImgUrl={IconC} alt="IconC"/></div>
+            <div class="skills-li"><SkillsBox mobileImgUrl={IconCSharp} desktopImgUrl={IconCSharp} alt="IconCSharp"/></div>
+            <div class="skills-li"><SkillsBox mobileImgUrl={IconGithub} desktopImgUrl={IconGithub} alt="IconGithub"/></div>
+            <div class="skills-li"><SkillsBox mobileImgUrl={IconAgile} desktopImgUrl={IconAgile} alt="IconAgile"/></div>
+            <div class="skills-li"><SkillsBox mobileImgUrl={IconGodot} desktopImgUrl={IconGodot} alt="IconGodot"/></div>
+            <div class="skills-li"><SkillsBox mobileImgUrl={IconJava} desktopImgUrl={IconJava} alt="IconJava"/></div>
+            <div class="skills-li"><SkillsBox mobileImgUrl={IconJavaScript} desktopImgUrl={IconJavaScript} alt="IconJavaScript"/></div>
+            <div class="skills-li"><SkillsBox mobileImgUrl={IconPHP} desktopImgUrl={IconPHP} alt="IconPHP"/></div>
+            <div class="skills-li"><SkillsBox mobileImgUrl={IconPython} desktopImgUrl={IconPython} alt="IconPython"/></div>
+            <div class="skills-li"><SkillsBox mobileImgUrl={IconSQL} desktopImgUrl={IconSQL} alt="IconSQL"/></div>
+            <div class="skills-li"><SkillsBox mobileImgUrl={IconSVN} desktopImgUrl={IconSVN} alt="IconSVN"/></div>
+            <div class="skills-li"><SkillsBox mobileImgUrl={IconUnrealEngine} desktopImgUrl={IconUnrealEngine} alt="IconUnrealEngine"/></div>
+            <div class="skills-li"><SkillsBox mobileImgUrl={IconPerforce} desktopImgUrl={IconPerforce} alt="IconPerforce"/></div>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
+</section>
+
+<section id="projects">
   <div class="page">
-    <h1>Experiance</h1>
+    <div style="padding-top: 8%;">
+      
+    </div>
   </div>
+</section>
+
+<section id="contact">
   <div class="page">
     <h1>Contact</h1>
+    <!--<ContactForm />-->
   </div>
+</section>
 
-  <div class="home-page-nav">
-    <ul class="home-page-nav-list">
-      <li><button type="button" class="nav-bullet"></button></li>
-      <li><button type="button" class="nav-bullet"></button></li>
+  <div class="home-page-nav sbn sbn14">
+    <ul class="home-page-nav-list ">
+      <li><a id="foo" class="sidebar-bullet is-active" href="#home"></a></li>
+      <li><a class="sidebar-bullet" href="#experiance"></a></li>
+      <li><a class="sidebar-bullet" href="#projects"></a></li>
+      <li><a class="sidebar-bullet" href="#contact"></a></li>
     </ul>
   </div>
 </div>
 </BaseLayout>
+
+<script src="../scripts/SidebarBullets.js"></script>
 
 </html>

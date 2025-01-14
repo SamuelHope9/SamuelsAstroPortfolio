@@ -1,0 +1,12 @@
+
+.experiance-box
+{
+    align-self: center;
+    margin-top: 13px;
+    width: 90%;
+    flex: 1;
+
+    border-style: solid;
+    border-color: blueviolet;
+    border-radius:40px;
+}
