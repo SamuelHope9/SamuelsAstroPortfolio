@@ -5,6 +5,7 @@ import { getImage } from "astro:assets";
 
 import VRDrivingSimulators from "../images/VrSimulator.png";
 import SideBySideSimulator from "../images/SideBySideSimulator.png";
+import GameflowGraph from "../images/GameflowGraph.png";
 
 ---
 
@@ -27,20 +28,48 @@ var swiper = new Swiper('.swiper', {
     effect: 'coverflow',
     grabCursor: true,
     centeredSlides: true,
-    slidesPerView: 'auto',
+	loop: true,
+    slidesPerView: 3,
     coverflowEffect: {
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
+		scale: 0.9,
+		rotate: 60,
+        depth: 500,
+        modifier: 0.8,
         slideShadows: true,
       },
+	  breakpoints: {
+      0: { // when window >=0px - webflow mobile portriat
+        slidesPerView: 1,
+        spaceBetween: -16,
+      },
+      478: { // when window >= 478px - webflow mobile landscape
+        slidesPerView: 2,
+        spaceBetween: -16,
+      },
+      767: { // when window >= 767px - webflow tablet
+        slidesPerView: 3,
+        spaceBetween: -16,
+      },
+      988: { // when window >= 988px - webflow desktop
+        slidesPerView: 3,
+        spaceBetween: -16,
+      },
+      1920: { // when window >= 988px - webflow desktop
+        slidesPerView: 3,
+        spaceBetween: -16,
+      }
+    },
+
       pagination: {
         el: '.swiper-pagination',
       },
     });
 
-
+	swiper.slides.forEach(slide => {
+ 		slide.onclick = () => {
+    		swiper.slideToLoop(slide.dataset.swiperSlideIndex)
+  		}
+	})
 
 </script>
 
@@ -51,18 +80,19 @@ var swiper = new Swiper('.swiper', {
 	<!-- Additional required wrapper -->
 	<div class="swiper-wrapper">
 	  <!-- Slides -->
-	  <div class="swiper-slide">
-		<div class="picture">
-			<picture>
-				<source media="(max-width: 799px)" srcset={VRDrivingSimulators.src} />
-				<source media="(min-width: 800px)" srcset={VRDrivingSimulators.src} />
-				<img src={VRDrivingSimulators.src} alt="VR Driving simulators" />
-			</picture>
-		</div>
-		<div class="detail">
-		  <h3>VR Driving Simulator</h3>
-		</div>
-	  </div>
+	  	<div class="swiper-slide">
+			<div class="picture">
+				<picture>
+					<source media="(max-width: 799px)" srcset={VRDrivingSimulators.src} />
+					<source media="(min-width: 800px)" srcset={VRDrivingSimulators.src} />
+					<img src={VRDrivingSimulators.src} alt="VR Driving simulators" />
+				</picture>
+			</div>
+			<div class="detail">
+				<h3>VR Driving Simulator</h3>
+			</div>
+	  	</div>
+
 	  <div class="swiper-slide">
 		<div class="picture">
 			<picture>
@@ -75,31 +105,41 @@ var swiper = new Swiper('.swiper', {
 		  <h3>SXS motion platform</h3>
 		</div>
 	  </div>
+
 	  <div class="swiper-slide">
 		<div class="picture">
-		  <img src="https://images.unsplash.com/photo-1502980426475-b83966705988?ixlib=rb-0.3.5&s=739aef35459daa8aaeaa55363d492bc1&auto=format&fit=crop&w=673&q=80" alt="">
+			<source media="(max-width: 799px)" srcset={VRDrivingSimulators.src} />
+			<source media="(min-width: 800px)" srcset={VRDrivingSimulators.src} />
+			<img src={VRDrivingSimulators.src} alt="VR Driving simulators" />
 		</div>
 		<div class="detail">
 		  <h3>CoDriVr explore</h3>
 		</div>
 	  </div>
+
 	  <div class="swiper-slide">
 		<div class="picture">
-		  <img src="https://images.unsplash.com/photo-1502768040783-423da5fd5fa0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0c6416353c255d2746a68c8a83943bdf&auto=format&fit=crop&w=634&q=80" alt="">
+			<source media="(max-width: 799px)" srcset={VRDrivingSimulators.src} />
+			<source media="(min-width: 800px)" srcset={VRDrivingSimulators.src} />
+			<img src={VRDrivingSimulators.src} alt="VR Driving simulators" />
 		</div>
 		<div class="detail">
 		  <h3>Road saftey</h3>
 		</div>
 	  </div>
+
 	  <div class="swiper-slide">
 		<div class="picture">
-		  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9a138cf8acd85036bd292d7f10074e79&auto=format&fit=crop&w=634&q=80" alt="">
+			<source media="(max-width: 799px)" srcset={GameflowGraph.src} />
+			<source media="(min-width: 800px)" srcset={GameflowGraph.src} />
+			<img src={GameflowGraph.src} alt="VR Driving simulators" />
 		</div>
 		<div class="detail">
 		  <h3>Gameflow system</h3>
 		  <span>c++ </span>
 		</div>
 	  </div>
+
 	</div>
 
   </div>
