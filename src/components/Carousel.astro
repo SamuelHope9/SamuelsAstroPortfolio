@@ -6,6 +6,9 @@ import { getImage } from "astro:assets";
 import VRDrivingSimulators from "../images/VrSimulator.png";
 import SideBySideSimulator from "../images/SideBySideSimulator.png";
 import GameflowGraph from "../images/GameflowGraph.png";
+import HeadsetRoad from "../images/HeadsetRoad.png";
+import Quest3 from "../images/Quest3Headset.png";
+
 
 ---
 
@@ -17,6 +20,7 @@ import GameflowGraph from "../images/GameflowGraph.png";
 
 <script>
 
+import { slide } from "astro:transitions";
 import Swiper from "swiper/bundle";
 
 import 'swiper/css';
@@ -68,29 +72,47 @@ var swiper = new Swiper('.swiper', {
 	swiper.slides.forEach(slide => {
  		slide.onclick = () => {
     		swiper.slideToLoop(slide.dataset.swiperSlideIndex)
+
   		}
 	})
 
 
 
 
-	function ToggleLinks(SwiperElement) {    
+	function ActivateLinks(SwiperElement,Activate) {    
         var links = SwiperElement.getElementsByClassName("swiper-link");    
         for (var i = 0; i < links.length; i++) {    
-            var href = links[i].href; 
-            links[i].setAttribute("href", links[i].rel); 
-			links[i].setAttribute("rel", href);
+			if(Activate == true)
+			{
+				links[i].setAttribute("href", links[i].rel); 
+			}
+			else
+			{
+				links[i].setAttribute("href", "javascript:void(0)"); 
+			}
         }
     } 
 
+	var PreviousRealIndex = swiper.realIndex;
+	swiper.on('realIndexChange', function () {
+		ActivateLinks(swiper.slides[swiper.activeIndex],true);
+		//console.log("Test");
+		//swiper.clickedSlide.setAttribute("class","ActiveSlide")
 
-	swiper.on('slideChange', function () {
-		ToggleLinks(swiper.clickedSlide);
-		swiper.clickedSlide.setAttribute("class","ActiveSlide")
+		ActivateLinks(swiper.slides[swiper.previousIndex],false);
+		//console.log(swiper.realIndex+" Index " + (PreviousRealIndex));
 
-		ToggleLinks(swiper.slides[swiper.previousIndex]);
-		swiper.slides[swiper.previousIndex].setAttribute("class","NONE")
+		//PreviousRealIndex = swiper.realIndex;
+		//swiper.slides[swiper.previousIndex].setAttribute("class","NONE")
 	});
+
+	const urlParams = new URLSearchParams(window.location.search);
+	const SlideNumb = urlParams.get('Slide');
+
+	//if(isNaN(SlideNumb))
+	//{
+	//	
+	//}
 
 </script>
 
@@ -101,7 +123,9 @@ var swiper = new Swiper('.swiper', {
 	<!-- Additional required wrapper -->
 	<div class="swiper-wrapper">
 	  <!-- Slides -->
-	  	<div class="swiper-slide">
+	  	<div class="swiper-slide" data-hash="GameFlow4" id="GameFlow4">
+			<a class="swiper-link" href="javascript:void(0)" rel="/posts/VRDrivingSimulator/">
+				<div>
 			<div class="picture">
 				<picture>
 					<source media="(max-width: 799px)" srcset={VRDrivingSimulators.src} />
@@ -112,9 +136,13 @@ var swiper = new Swiper('.swiper', {
 			<div class="detail">
 				<h3>VR Driving Simulator</h3>
 			</div>
+			</div>
+		</a>
 	  	</div>
 
-	  <div class="swiper-slide">
+	  <div class="swiper-slide" data-hash="GameFlow3" id="GameFlow3">
+		<a class="swiper-link" href="javascript:void(0)" rel="/posts/SXSMotionPlatform/">
+		<div>
 		<div class="picture">
 			<picture>
 				<source media="(max-width: 799px)" srcset={SideBySideSimulator.src} />
@@ -125,35 +153,46 @@ var swiper = new Swiper('.swiper', {
 		<div class="detail">
 		  <h3>SXS motion platform</h3>
 		</div>
+	</div>
+	</a>
 	  </div>
 
 
-	  <div class="swiper-slide">
+	  <div class="swiper-slide" data-hash="GameFlow2" id="GameFlow2">
+		<a class="swiper-link" href="javascript:void(0)" rel="/posts/CoDriVRExplore/">
+		<div>
 		<div class="picture">
-			<source media="(max-width: 799px)" srcset={VRDrivingSimulators.src} />
-			<source media="(min-width: 800px)" srcset={VRDrivingSimulators.src} />
-			<img src={VRDrivingSimulators.src} alt="VR Driving simulators" />
+			<source media="(max-width: 799px)" srcset={HeadsetRoad.src} />
+			<source media="(min-width: 800px)" srcset={HeadsetRoad.src} />
+			<img src={HeadsetRoad.src} alt="VR Driving simulators" />
 		</div>
 		<div class="detail">
 		  <h3>CoDriVr explore</h3>
 		</div>
+	</div>
+		</a>
 	  </div>
 
-	  <div class="swiper-slide">
+
+	  <div class="swiper-slide" data-hash="GameFlow9" id="GameFlow9">
+		<a class="swiper-link" href="javascript:void(0)" rel="/posts/RoadSaftey/">
+		<div>
 		<div class="picture">
-			<source media="(max-width: 799px)" srcset={VRDrivingSimulators.src} />
-			<source media="(min-width: 800px)" srcset={VRDrivingSimulators.src} />
-			<img src={VRDrivingSimulators.src} alt="VR Driving simulators" />
+			<source media="(max-width: 799px)" srcset={Quest3.src} />
+			<source media="(min-width: 800px)" srcset={Quest3.src} />
+			<img src={Quest3.src} alt="VR Driving simulators" />
 		</div>
 		<div class="detail">
 		  <h3>Road saftey</h3>
 		</div>
+		</div>
+		</a>
 	  </div>
 
 	
-	  	<div class="swiper-slide">
+	  	<div class="swiper-slide" data-hash="GameFlow" id="GameFlow">
 
-			<a class="swiper-link" href="/posts/GameFlow/">
+			<a class="swiper-link" href="javascript:void(0)" rel="/posts/GameFlow/">
 			<div>
 				<div class="picture">
 					<source media="(max-width: 799px)" srcset={GameflowGraph.src} />

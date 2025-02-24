@@ -1,26 +1,33 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: 'My First Blog Post'
-pubDate: 2022-07-01
 description: 'This is the first post of my new Astro blog.'
-image:
-    url: 'https://docs.astro.build/assets/rose.webp'
-    alt: 'The Astro logo on a dark background with a pink glow.'
 tags: ["astro", "blogging", "learning in public"]
 
 ---
 
 
-Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
+# GameFlow system
+---
+I noticed we were spending a large amount of time dealing with monolithic blueprints.  
+They were taking up too much time to build and maintain.  
+These blueprints were used to manage the game flow through the entire experience.  
 
-## What I've accomplished
 
-1. **Installing Astro**: First, I created a new Astro project and set up my online accounts.
 
-2. **Making Pages**: I then learned how to make pages by creating new `.astro` files and placing them in the `src/pages/` folder.
 
-3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
+To solve this problem and to allow our designer to easily change stuff for testing I created the gameflow system.  
+This is a custom C++ plugin for Unreal Engine that utilizes a graph and custom detail panels, built using Slate.  
+ I drew a lot of inspiration from LogicDriver, but we chose not to use it because it wasn’t as user-friendly and didn't do exactly what we wanted.  
+ 
+ Throughout development, ease of use was always my top priority.  
+ In essence, this is a glorified state machine with many added features, designed to be easily accessible for anyone.     
+ The system uses a custom flowchart-like visual interface, enabling users to easily create complex game logic while also keeping it tidy.
 
-## What's next
+______
+### Click me to see the documentation. 
 
-I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
+Newer documentation has been moved to our internal dokuwiki that I have setup and maintain
+______
+
+@todo add gameflow chart image here
