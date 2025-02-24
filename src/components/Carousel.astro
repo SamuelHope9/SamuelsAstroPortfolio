@@ -71,6 +71,27 @@ var swiper = new Swiper('.swiper', {
   		}
 	})
 
+
+
+
+	function ToggleLinks(SwiperElement) {    
+        var links = SwiperElement.getElementsByClassName("swiper-link");    
+        for (var i = 0; i < links.length; i++) {    
+            var href = links[i].href; 
+            links[i].setAttribute("href", links[i].rel); 
+			links[i].setAttribute("rel", href);
+        }
+    } 
+
+
+	swiper.on('slideChange', function () {
+		ToggleLinks(swiper.clickedSlide);
+		swiper.clickedSlide.setAttribute("class","ActiveSlide")
+
+		ToggleLinks(swiper.slides[swiper.previousIndex]);
+		swiper.slides[swiper.previousIndex].setAttribute("class","NONE")
+	});
+
 </script>
 
 
@@ -106,6 +127,7 @@ var swiper = new Swiper('.swiper', {
 		</div>
 	  </div>
 
+
 	  <div class="swiper-slide">
 		<div class="picture">
 			<source media="(max-width: 799px)" srcset={VRDrivingSimulators.src} />
@@ -128,17 +150,24 @@ var swiper = new Swiper('.swiper', {
 		</div>
 	  </div>
 
-	  <div class="swiper-slide">
-		<div class="picture">
-			<source media="(max-width: 799px)" srcset={GameflowGraph.src} />
-			<source media="(min-width: 800px)" srcset={GameflowGraph.src} />
-			<img src={GameflowGraph.src} alt="VR Driving simulators" />
+	
+	  	<div class="swiper-slide">
+
+			<a class="swiper-link" href="/posts/GameFlow/">
+			<div>
+				<div class="picture">
+					<source media="(max-width: 799px)" srcset={GameflowGraph.src} />
+					<source media="(min-width: 800px)" srcset={GameflowGraph.src} />
+					<img src={GameflowGraph.src} alt="VR Driving simulators" />
+				</div>
+				<div class="detail">
+					<h3>Gameflow system</h3>
+					<span>c++ </span>
+				</div>
+	  		</div>
+			</a>
+
 		</div>
-		<div class="detail">
-		  <h3>Gameflow system</h3>
-		  <span>c++ </span>
-		</div>
-	  </div>
 
 	</div>
 

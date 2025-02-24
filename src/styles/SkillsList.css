@@ -1,0 +1,19 @@
+#skills
+{
+  margin-top: 4%;
+  height: 70%;
+  margin-bottom: 10%;
+  margin-right: 18%;
+  flex: 1;
+
+}
+
+#skills-ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 90px);
+    grid-gap: 1.5rem;
+    grid-auto-flow: dense;
+    justify-content: space-between;
+    align-items: start;
+  
+  }

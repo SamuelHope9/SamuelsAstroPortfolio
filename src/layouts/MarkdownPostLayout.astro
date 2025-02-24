@@ -2,14 +2,15 @@
 import BaseLayout from './BaseLayout.astro';
 
 const { frontmatter } = Astro.props;
+
+import '../styles/PostLayout.css';
 ---
 
 <BaseLayout></BaseLayout>
     <!--<h1>{frontmatter.title}</h1>-->
     </br>
 </br>
-    <p><em>{frontmatter.description}</em></p>
-    <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+    <!--<p><em>{frontmatter.description}</em></p>-->
 
 
 </BaseLayout>

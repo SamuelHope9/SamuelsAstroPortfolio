@@ -1,0 +1,44 @@
+---
+import IconCPlusPlus from "../images/SkillIcons/Icon-CPlusPlus.png";
+import IconAgile from "../images/SkillIcons/Icon-Agile.png";
+import IconC from "../images/SkillIcons/Icon-C.png";
+import IconCSharp from "../images/SkillIcons/Icon-CSharp.png";
+import IconGithub from "../images/SkillIcons/Icon-Github.png";
+import IconGodot from "../images/SkillIcons/Icon-Godot.png";
+import IconJava from "../images/SkillIcons/Icon-Java.png";
+import IconJavaScript from "../images/SkillIcons/Icon-JavaScript.png";
+import IconPerforce from "../images/SkillIcons/Icon-Perforce.png";
+import IconPHP from "../images/SkillIcons/Icon-PHP.png";
+import IconPython from "../images/SkillIcons/Icon-Python.png";
+import IconSQL from "../images/SkillIcons/Icon-Sql.png";
+import IconSVN from "../images/SkillIcons/Icon-SVN.png";
+import IconUnrealEngine from "../images/SkillIcons/Icon-UnrealEngine.png";
+
+
+import SkillsBox from '../components/SkillsBox.astro';
+
+
+import '../styles/SkillsList.css';
+import '../styles/global.css';
+---
+
+<div id="skills">
+    <h2 style="text-align:center; margin-top: 0%;">Skills</h2>
+    <div>
+      <div id="skills-ul">
+        <div class="skills-li"><SkillsBox mobileImgUrl={IconCPlusPlus} desktopImgUrl={IconCPlusPlus} alt="IconCPlusPlus"/></div>
+        <div class="skills-li"><SkillsBox mobileImgUrl={IconC} desktopImgUrl={IconC} alt="IconC"/></div>
+        <div class="skills-li"><SkillsBox mobileImgUrl={IconCSharp} desktopImgUrl={IconCSharp} alt="IconCSharp"/></div>
+        <div class="skills-li"><SkillsBox mobileImgUrl={IconGithub} desktopImgUrl={IconGithub} alt="IconGithub"/></div>
+        <div class="skills-li"><SkillsBox mobileImgUrl={IconAgile} desktopImgUrl={IconAgile} alt="IconAgile"/></div>
+        <div class="skills-li"><SkillsBox mobileImgUrl={IconGodot} desktopImgUrl={IconGodot} alt="IconGodot"/></div>
+        <div class="skills-li"><SkillsBox mobileImgUrl={IconJava} desktopImgUrl={IconJava} alt="IconJava"/></div>
+        <div class="skills-li"><SkillsBox mobileImgUrl={IconJavaScript} desktopImgUrl={IconJavaScript} alt="IconJavaScript"/></div>
+        <div class="skills-li"><SkillsBox mobileImgUrl={IconPHP} desktopImgUrl={IconPHP} alt="IconPHP"/></div>
+        <div class="skills-li"><SkillsBox mobileImgUrl={IconPython} desktopImgUrl={IconPython} alt="IconPython"/></div>
+        <div class="skills-li"><SkillsBox mobileImgUrl={IconSQL} desktopImgUrl={IconSQL} alt="IconSQL"/></div>
+        <div class="skills-li"><SkillsBox mobileImgUrl={IconSVN} desktopImgUrl={IconSVN} alt="IconSVN"/></div>
+        <div class="skills-li"><SkillsBox mobileImgUrl={IconUnrealEngine} desktopImgUrl={IconUnrealEngine} alt="IconUnrealEngine"/></div>
+        <div class="skills-li"><SkillsBox mobileImgUrl={IconPerforce} desktopImgUrl={IconPerforce} alt="IconPerforce"/></div>
+    </div>
+</div>

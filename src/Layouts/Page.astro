@@ -1,0 +1,11 @@
+---
+import '../styles/global.css';
+
+const { SectionID } = Astro.props;
+---
+
+<section id={SectionID}>
+    <div class="page">
+        <slot />
+    </div>
+</section>
