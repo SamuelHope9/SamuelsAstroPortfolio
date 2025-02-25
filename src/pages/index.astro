@@ -13,31 +13,14 @@ const pageTitle = "Home Page";
 import '../styles/homepage.css';
 import localLaptopImage from "../images/LaptopTransparent.png";
 
-
-import IconCPlusPlus from "../images/SkillIcons/Icon-CPlusPlus.png";
-import IconAgile from "../images/SkillIcons/Icon-Agile.png";
-import IconC from "../images/SkillIcons/Icon-C.png";
-import IconCSharp from "../images/SkillIcons/Icon-CSharp.png";
-import IconGithub from "../images/SkillIcons/Icon-Github.png";
-import IconGodot from "../images/SkillIcons/Icon-Godot.png";
-import IconJava from "../images/SkillIcons/Icon-Java.png";
-import IconJavaScript from "../images/SkillIcons/Icon-JavaScript.png";
-import IconPerforce from "../images/SkillIcons/Icon-Perforce.png";
-import IconPHP from "../images/SkillIcons/Icon-PHP.png";
-import IconPython from "../images/SkillIcons/Icon-Python.png";
-import IconSQL from "../images/SkillIcons/Icon-Sql.png";
-import IconSVN from "../images/SkillIcons/Icon-SVN.png";
-import IconUnrealEngine from "../images/SkillIcons/Icon-UnrealEngine.png";
-
 ---
 
 
 
 <BaseLayout>
 <div class="home-page">
-  
-  <section id="home">
-  <div class="page">
+
+  <Page SectionID="home">
     <div class="welcome-laptop-parent">
       <div class="welcome-wrapper">
         <div class="container">
@@ -49,35 +32,36 @@ import IconUnrealEngine from "../images/SkillIcons/Icon-UnrealEngine.png";
           <img src={localLaptopImage.src} alt="Laptop with code">
         </div>
     </div>
-  </div>
-</section>
+  </Page>
 
 
-
-<Page SectionID="experiance">
-  <div id="experiance-container">
-    <ExperianceList />
-
-    <div id="divider"></div>
-
-    <SkillsList />
-  </div>
-</Page>
-
-
-<section id="projects">
-  <div class="page">
-    <div style="padding-top: 8%;">
-      <Carousel />
+  <div class="desktop">
+  <Page SectionID="experiance">
+    <div id="experiance-container">
+      <ExperianceList/>
+      <div id="divider"></div>
+      <SkillsList/>
     </div>
+  </Page>
   </div>
-</section>
+  <div class="mobile">
+    <Page SectionID="experiance">
+      <ExperianceList/>
+    </Page>
+  </div>
 
-<section id="contact">
-  <div class="page">
+
+  <Page SectionID="projects">
+    <div style="padding-top: 8%;">
+        <Carousel />
+    </div>
+  </Page>
+
+
+  <Page SectionID="contact">
     <ContactForm/>
-  </div>
-</section>
+  </Page>
+
 
   <div class="home-page-nav sbn sbn14">
     <ul class="home-page-nav-list ">
@@ -87,6 +71,7 @@ import IconUnrealEngine from "../images/SkillIcons/Icon-UnrealEngine.png";
       <li><a class="sidebar-bullet" href="#contact"></a></li>
     </ul>
   </div>
+
 </div>
 </BaseLayout>
 

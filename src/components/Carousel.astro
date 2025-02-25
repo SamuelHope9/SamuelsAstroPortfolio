@@ -93,7 +93,6 @@ var swiper = new Swiper('.swiper', {
         }
     } 
 
-	var PreviousRealIndex = swiper.realIndex;
 	swiper.on('realIndexChange', function () {
 		ActivateLinks(swiper.slides[swiper.activeIndex],true);
 		//console.log("Test");
@@ -107,12 +106,13 @@ var swiper = new Swiper('.swiper', {
 	});
 
 	const urlParams = new URLSearchParams(window.location.search);
-	const SlideNumb = urlParams.get('Slide');
+	const SlideNumb = urlParams.get('slide');
+	const ParsedSlideNumb = parseInt(SlideNumb, 10);
 
-	//if(isNaN(SlideNumb))
-	//{
-	//	
-	//}
+	if(!isNaN(ParsedSlideNumb))
+	{
+		swiper.slideToLoop(ParsedSlideNumb);
+	}
 
 </script>
 
