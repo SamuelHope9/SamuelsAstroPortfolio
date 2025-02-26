@@ -24,6 +24,10 @@
   height: 100%;
   width: 100%;
   align-content: center;
+  
+  @media (max-width: 600px){
+    margin-top: 30%;
+  }
 }
 .laptop-image
 {
@@ -39,6 +43,7 @@
   }
 }
 
+@media (min-width: 600px) { 
 .Tittle {
   font-size: 6rem;
   margin: 0%;
@@ -50,9 +55,27 @@
   line-height: 1.2;
   font-size: 1.25rem;
 }
+}
+@media (max-width: 600px) { 
+  .Tittle {
+    font-size: 4rem;
+    margin: 0%;
+    line-height: 0.7;
+    
+  }
+  .WelcomeText
+  {
+    line-height: 1.2;
+    font-size: 1rem;
+  }
+}
+
 .welcome-wrapper
 {
-  display: inline-block;
+  @media (min-width: 600px) { 
+    display: inline-block;
+  }
+
   vertical-align: middle;
   padding: 0rem 0rem;
 }
@@ -64,23 +87,7 @@
   width: 100%;
   height: 100%;
 }
-#experiance
-{
-  flex: 1.3;
-  margin-top: 4%;
-  
-  
-}
 
-
-#experiance-flex-box
-{
-  height: 70%;
-  margin-bottom: 10%;
-  
-  display: flex;
-  flex-direction: column;
-}
 
 #divider
 {
@@ -91,16 +98,6 @@
   border-radius:5px;
 }
 
-
-
-
-/* Page layout */
-.page {
-  height: 100vh;
-  scroll-snap-align: start;
-  z-index: 1;
-  width: 100vw;
-}
 
 html {
   scroll-snap-type: y mandatory;

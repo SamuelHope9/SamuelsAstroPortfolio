@@ -12,7 +12,7 @@ const pageTitle = "Home Page";
 
 import '../styles/homepage.css';
 import localLaptopImage from "../images/LaptopTransparent.png";
-
+import localLaptopMobileImage from "../images/LaptopTransparentMobile.png";
 ---
 
 
@@ -29,24 +29,31 @@ import localLaptopImage from "../images/LaptopTransparent.png";
         </div>
       </div>
         <div class="welcome-wrapper laptop-wrapper">
-          <img src={localLaptopImage.src} alt="Laptop with code">
+          <picture>
+            <source media="(max-width: 600px)" srcset={localLaptopMobileImage.src} />
+            <source media="(min-width: 600px)" srcset={localLaptopImage.src} />
+            <img src={localLaptopImage.src} alt="Laptop with code" />
+          </picture>
         </div>
     </div>
   </Page>
-
-
-  <div class="desktop">
+  
   <Page SectionID="experiance">
-    <div id="experiance-container">
+    <div class="desktop">
+      <div id="experiance-container">
+        <ExperianceList/>
+        <div id="divider"></div>
+        <SkillsList/>
+      </div>
+    </div>
+    <div class="mobile">
       <ExperianceList/>
-      <div id="divider"></div>
-      <SkillsList/>
     </div>
   </Page>
-  </div>
+  
   <div class="mobile">
-    <Page SectionID="experiance">
-      <ExperianceList/>
+    <Page SectionID="skills">
+      <SkillsList/>
     </Page>
   </div>
 
@@ -67,6 +74,7 @@ import localLaptopImage from "../images/LaptopTransparent.png";
     <ul class="home-page-nav-list ">
       <li><a id="foo" class="sidebar-bullet is-active" href="#home"></a></li>
       <li><a class="sidebar-bullet" href="#experiance"></a></li>
+      <li class="mobile"><a class="sidebar-bullet" href="#skills"></a></li>
       <li><a class="sidebar-bullet" href="#projects"></a></li>
       <li><a class="sidebar-bullet" href="#contact"></a></li>
     </ul>

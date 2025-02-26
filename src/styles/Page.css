@@ -1,0 +1,11 @@
+
+/* Page layout */
+.page {
+    min-height: 100dvh;
+    scroll-snap-align: start;
+    z-index: 1;
+    width: 100svw;
+    display: block;
+    overflow:auto;
+  }
+  

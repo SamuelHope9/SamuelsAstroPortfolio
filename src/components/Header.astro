@@ -1,13 +1,16 @@
 ---
 import Hamburger from './Hamburger.astro';
+
 import Navigation from './Navigation.astro';
 import ThemeIcon from './ThemeIcon.astro';
+
+const { HomePageLink} = Astro.props;
 ---
 
 <header>
   <nav>
     <div class="row" style="position: fixed;">
-      <div class="column"><Hamburger /></div>
+      <div class="column"><Hamburger HomePageLink={HomePageLink}/></div>
       <div class="column"><ThemeIcon /></div>
     </div>
     <Navigation />
