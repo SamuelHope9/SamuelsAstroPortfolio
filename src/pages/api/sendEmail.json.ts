@@ -22,12 +22,14 @@ export const POST: APIRoute = async ({ request }) => {
         statusText: "Did not provide the right data",
       },
     );
-  } // Sending information to Resend
+  } 
+  
+  // Sending information to Resend
 
   const sendResend = await resend.emails.send({
-    from: "support@resend.dev",
-    to: "delivered@resend.dev",
-    subject: `Sumbission from ${name}`,
+    from: `${email}`,
+    to: "SamuelJamesFisher1@gmail.com",
+    subject: 'Portfolio Enquiry',
     html: `<p>Hi ${name},</p><p>Your message was received.</p>`,
   }); // If the message was sent successfully, return a 200 response
 
