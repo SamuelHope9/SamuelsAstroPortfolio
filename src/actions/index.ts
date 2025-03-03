@@ -8,9 +8,19 @@ export const server = {
       accept: "form",
       input: z.object({
         name: z.string(),
+        email: z.string(),
+        message: z.string(),
       }),
       handler: async (input) => {
-        console.log(`Hello, ${input.name}!`)
+        console.log(`${z}!`)
+
+
+        //const is_valid_captcha = await processCaptcha(Captcha)
+        //if (is_valid_captcha)
+        //{
+            //const is_valid_captcha = await sendEmail(Captcha)
+        //}
+
         return `Hello, ${input.name}!`
       }
     })};
@@ -19,6 +29,7 @@ type formData = {
     name: string;
     email: string;
     message: string;
+    Captcha: string;
 };
 
 export async function processCaptcha(g_recaptcha_response: string) {
@@ -52,10 +63,8 @@ export async function sendEmail(FormData)
     try {
         console.log("Test log");
     
-        //const formData = await Astro.request.formData();
-    
-        //const CaptchaResponse = formData.get('g-recaptcha-response')?.toString();
-       // const is_valid_captcha = await processCaptcha(CaptchaResponse);
+        const CaptchaResponse = FormData.get('g-recaptcha-response')?.toString();
+        const is_valid_captcha = await processCaptcha(CaptchaResponse);
         /*
         if (is_valid_captcha)
         {
