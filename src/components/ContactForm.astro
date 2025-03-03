@@ -1,32 +1,64 @@
 ---
+
+export const prerender = false; //This will not work without this line due to using api route instead of js
+
+const CaptchaSiteKey = import.meta.env.CAPTCHA_SITE_API_KEY;
+
+import { actions } from 'astro:actions';
+/*
+
+
+
 export const prerender = false;
+*/
 
-type formData = {
-  name: string;
-  email: string;
-  message: string;
-};
 
+/* 
 if (Astro.request.method === "POST") {
   try {
+    console.log("Test log");
+
     const formData = await Astro.request.formData();
-    const response = await fetch(Astro.url + "/api/sendEmail.json", {
+
+    const CaptchaResponse = formData.get('g-recaptcha-response')?.toString();
+    const is_valid_captcha = await processCaptcha(CaptchaResponse);
+
+    if (is_valid_captcha)
+    {
+      
+      const response = await fetch(Astro.url + "/api/sendEmail.json", {
       method: "POST",
-      body: formData,
-    });
+      body: formData
+      })
 
-    const data: formData = await response.json();
+      const data: formData = await response.json();
 
-    if (response.status === 200) {
-      console.log(data.message);
+      if (response.status === 200) {
+        console.log(data.message); 
+      }
+        
     }
   } catch (error) {
     if (error instanceof Error) {
-      console.error(`Error: ${error.message}`);
+      console.error(`Error: ${error.message}`); 
     }
   }
 }
+*/
+
 ---
+
+<script
+  is:inline
+  src='https://www.google.com/recaptcha/api.js'></script>
+<script is:inline>
+  function recaptcha() {
+    document.querySelector('form').submit()
+  }
+
+  import { actions } from 'astro:actions';
+</script>
+
 
 <style>
   @import '../styles/contactForm.css';
@@ -36,7 +68,8 @@ if (Astro.request.method === "POST") {
   <div id="contact-container">
   <h1 style="text-align: center;">Send me a message!</h1>
   <pre>Got a question or just want to say hello? Go ahead.</pre>
-  <form method="POST">
+  <form>
+
     <label>
         Name
         <input type="text" id="name" name="name" required />
@@ -50,8 +83,30 @@ if (Astro.request.method === "POST") {
         Message
         <textarea id="message" name="message" required />
     </label>
-    <button>Send</button>
+
+    <input type="submit"
+    data-sitekey={CaptchaSiteKey}
+    value="Send message" />
+
 </form>
+
+<script>
+  
+  import { actions } from 'astro:actions';
+
+  const form = document.querySelector('form');
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const formData = new FormData(form);
+    const { error } = await actions.SubmitFormAction(formData);
+    if (!error)
+    {
+      //Change form to a thank you
+    };
+  })
+    
+</script>
+
 </div>
 </div>
 

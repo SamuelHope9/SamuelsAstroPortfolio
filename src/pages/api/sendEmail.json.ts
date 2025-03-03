@@ -1,5 +1,5 @@
 
-export const prerender = false; //This will not work without this line
+export const prerender = false; //This will not work without this line due to using api route instead of js
 
 import type { APIRoute } from "astro";
 import { Resend } from "resend";

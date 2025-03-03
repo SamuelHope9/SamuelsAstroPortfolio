@@ -13,6 +13,10 @@ const pageTitle = "Home Page";
 import '../styles/homepage.css';
 import localLaptopImage from "../images/LaptopTransparent.png";
 import localLaptopMobileImage from "../images/LaptopTransparentMobile.png";
+
+if (Astro.request.method === "POST") {
+    console.log("Test log");
+  }
 ---
 
 
