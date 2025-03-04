@@ -4,60 +4,7 @@ export const prerender = false; //This will not work without this line due to us
 
 const CaptchaSiteKey = import.meta.env.CAPTCHA_SITE_API_KEY;
 
-import { actions } from 'astro:actions';
-/*
-
-
-
-export const prerender = false;
-*/
-
-
-/* 
-if (Astro.request.method === "POST") {
-  try {
-    console.log("Test log");
-
-    const formData = await Astro.request.formData();
-
-    const CaptchaResponse = formData.get('g-recaptcha-response')?.toString();
-    const is_valid_captcha = await processCaptcha(CaptchaResponse);
-
-    if (is_valid_captcha)
-    {
-      
-      const response = await fetch(Astro.url + "/api/sendEmail.json", {
-      method: "POST",
-      body: formData
-      })
-
-      const data: formData = await response.json();
-
-      if (response.status === 200) {
-        console.log(data.message); 
-      }
-        
-    }
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error(`Error: ${error.message}`); 
-    }
-  }
-}
-*/
-
 ---
-
-<script
-  is:inline
-  src='https://www.google.com/recaptcha/api.js'></script>
-<script is:inline>
-  function recaptcha() {
-    document.querySelector('form').submit()
-  }
-
-  import { actions } from 'astro:actions';
-</script>
 
 
 <style>
@@ -68,44 +15,83 @@ if (Astro.request.method === "POST") {
   <div id="contact-container">
   <h1 style="text-align: center;">Send me a message!</h1>
   <pre>Got a question or just want to say hello? Go ahead.</pre>
-  <form>
-
+  <form onsubmit="return false" data-message={CaptchaSiteKey}>
     <label>
         Name
-        <input type="text" id="name" name="name" required />
+        <input type="text" id="name" name="name" />
     </label>
     <label>
         Email
-        <input type="email" id="email" name="email" required />
+        <input type="email" id="email" name="email" />
     </label>
     <br/>
     <label>
         Message
-        <textarea id="message" name="message" required />
+        <textarea id="message" name="message" />
     </label>
 
-    <input type="submit"
-    data-sitekey={CaptchaSiteKey}
-    value="Send message" />
-
+    <button>Send</button >
 </form>
 
+<script async  src='https://www.google.com/recaptcha/api.js?render=6Lf8eOcqAAAAAAn76mdOERuhB0hCWPf5KbpgSFzV'></script>
 <script>
+import { actions } from 'astro:actions';
+
+
+async function CaptchaCallback(token)
+  {
+      console.log("GetTheCallBack");
+      const formData = new FormData(form);
+      formData.append("Test",token);
+      await actions.SubmitFormAction(formData);
+  };
   
-  import { actions } from 'astro:actions';
+  if(typeof grecaptcha === 'undefined') { grecaptcha = {}; }
+
+  grecaptcha.ready = function(cb){
+    if(typeof grecaptcha === 'undefined') {
+      // window.__grecaptcha_cfg is a global variable that stores reCAPTCHA's
+      // configuration. By default, any functions listed in its 'fns' property
+      // are automatically executed when reCAPTCHA loads.
+      const c = '___grecaptcha_cfg';
+      window[c] = window[c] || {};
+      (window[c]['fns'] = window[c]['fns']||[]).push(cb);
+    } else {
+      cb();
+    }
+  }
+
+
+  async function SendCapthca(CaptchaSiteKey)
+  {
+    grecaptcha.ready(function() {
+          console.log("ExecuteCaptha");
+          console.log(CaptchaSiteKey);
+          grecaptcha.ready(function() {
+          grecaptcha.execute(CaptchaSiteKey, {action: 'submit'}).then(function(token) {
+              CaptchaCallback(token);
+          });
+        });
+    });
+  }
 
   const form = document.querySelector('form');
+ 
+
   form?.addEventListener('submit', async (event) => {
     event.preventDefault();
-    const formData = new FormData(form);
-    const { error } = await actions.SubmitFormAction(formData);
-    if (!error)
-    {
-      //Change form to a thank you
-    };
-  })
+    console.log("click1");
+    const CaptchaSiteKey = form.dataset.message;
+
+    console.log(CaptchaSiteKey);
     
+    SendCapthca(CaptchaSiteKey);
+    return false;
+  })
+
 </script>
+
+
 
 </div>
 </div>

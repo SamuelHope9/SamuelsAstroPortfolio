@@ -98,12 +98,12 @@
   border-radius:5px;
 }
 
-
+/*
 html {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
-
+*/
 
 /* Nav Buttons SideBar*/
 .home-page-nav
