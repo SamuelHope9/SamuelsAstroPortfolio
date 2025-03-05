@@ -37,17 +37,16 @@ const CaptchaSiteKey = import.meta.env.CAPTCHA_SITE_API_KEY;
 <script>
 import { actions } from 'astro:actions';
 
-
 async function CaptchaCallback(token)
   {
-      console.log("GetTheCallBack");
       const formData = new FormData(form);
-      formData.append("Test",token);
+      formData.append("CaptchaToken",token);
       await actions.SubmitFormAction(formData);
   };
   
-  if(typeof grecaptcha === 'undefined') { grecaptcha = {}; }
 
+  //To solve any race conditions with grecaptcha not being loaded yet
+  if(typeof grecaptcha === 'undefined') { grecaptcha = {}; }
   grecaptcha.ready = function(cb){
     if(typeof grecaptcha === 'undefined') {
       // window.__grecaptcha_cfg is a global variable that stores reCAPTCHA's
@@ -69,6 +68,7 @@ async function CaptchaCallback(token)
           console.log(CaptchaSiteKey);
           grecaptcha.ready(function() {
           grecaptcha.execute(CaptchaSiteKey, {action: 'submit'}).then(function(token) {
+              console.log("Execute");
               CaptchaCallback(token);
           });
         });
@@ -80,12 +80,9 @@ async function CaptchaCallback(token)
 
   form?.addEventListener('submit', async (event) => {
     event.preventDefault();
-    console.log("click1");
-    const CaptchaSiteKey = form.dataset.message;
 
-    console.log(CaptchaSiteKey);
-    
-    SendCapthca(CaptchaSiteKey);
+    const captchaSiteKey = form.dataset.message;
+    SendCapthca(captchaSiteKey);
     return false;
   })
 
