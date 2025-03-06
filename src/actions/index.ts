@@ -3,6 +3,7 @@ import { Resend } from "resend";
 
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
+
 import { string } from 'astro/zod';
 import { defineAction } from 'astro:actions';
 import { z } from 'astro:schema';
@@ -38,7 +39,7 @@ export const server = {
               message: input.message,
             }
             
-            sendEmail(formData);
+            //sendEmail(formData);
 
             return `Succsess`;
         }
@@ -97,9 +98,9 @@ export async function sendEmail(formData : EmailFormData)
 
   const sendResend = await resend.emails.send({
     from: "test <Portfolio@resend.dev>",
-    to: "SamuelJamesFisher1@gmail.com",
+    to: import.meta.env.PERSONAL_EMAIL,
     subject: 'Portfolio Enquiry',
-    html: `<p>${formData.name} contacted you through the portfolio website</p><p>The message was {formData.message}</p>`,
+    html: `<p>${formData.name} contacted you through the portfolio website</p><p>The message was ${formData.message}</p>`,
   }); // If the message was sent successfully, return a 200 response
 
   if (sendResend.data) {
