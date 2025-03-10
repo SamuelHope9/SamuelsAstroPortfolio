@@ -2,8 +2,6 @@
     text-align: center;
     justify-self: center;
 
-    display:inline-block;
-
     width: 40%;
 	  padding-top: 180px;
 	  padding-bottom: 50px;
@@ -11,10 +9,10 @@
 
 
 h1{
-    font-size: 3rem;
+    font-size: 4vw;
     margin: 0%;
 }
-pre
+p
 {
     margin: 0%;
     font-size: 1rem;
@@ -51,17 +49,25 @@ textarea::placeholder{
  }
 
 
+/*Form transitions*/
+.animate-out-fade-right {
+  animation: fadeOutRight 2s 500ms forwards;
+}
+@keyframes fadeOutRight {
+  to {
+    opacity: 0;
+    translate: 0px 50px;
+  }
+}
 
-
-
- /*Button style thank you google*/
- #email-button {
-    position: relative;
+ /*Cool button style thank you google had to adjust for svg*/
+ .button-unclicked {
     padding: 15px 45px;
+    display: table-cell;
     width: auto;
-    display: flex;
     justify-content: center;
     align-items: center;
+    vertical-align: center;
     font-size: 1.5rem;
     border-radius: 15px;
     border: 2px solid #00c2cb;
@@ -73,24 +79,46 @@ textarea::placeholder{
     font-family: "Poppins", sans-serif;
   }
   svg {
-    position: absolute;
+    transform: translate(0px, -7px);
+    transform-box: fill-box;
+    transform-origin: 50px 0px;
+    margin-top: 0%;
+    position: relative;
     color: transparent;
+    opacity: 0;
     transition: 200ms;
-    font-family: "Poppins", sans-serif;
+    fill:#00c2cb;
+    width: 0px;
+    height: 0px;
+
   }
-  #email-button:focus {
+  .button-clicked {
     color: transparent;
     outline: none;
     border: 2px solid transparent;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    padding: 25px 25px;
+    width: 75px;
+    height: 75px;
+    padding:0;
+    border-left: 2px solid #00c2cb;
+    color: #00c2cb;
+    background: none;
+  }
+
+  .button-clicked:focus {
+    color: transparent;
+    outline: none;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    padding:0;
     border-left: 2px solid #00c2cb;
     animation: spin 2s 500ms forwards;
+    animation-fill-mode: forwards;
   }
-  #email-button:focus svg {
-    animation: check 300ms 2250ms forwards;
+  .button-clicked:focus svg {
+    animation: checkmark 300ms 2250ms forwards;
   }
   
   @keyframes spin {
@@ -104,9 +132,14 @@ textarea::placeholder{
     }
   }
   
-  @keyframes check {
+  @keyframes checkmark {
     to {
-      color: #00c2cb;
+      opacity: 1;
+      width: 30px;
+      height: 30px;
+      fill:"freeze";
     }
   }
+
+
   

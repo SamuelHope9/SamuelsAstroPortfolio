@@ -1,9 +1,13 @@
 ---
+import { actions } from 'astro:actions';
 
 export const prerender = false; //This will not work without this line due to using api route instead of js
-
 const CaptchaSiteKey = import.meta.env.CAPTCHA_SITE_API_KEY;
 
+
+
+
+const result = Astro.getActionResult(actions.SubmitFormAction);
 ---
 
 
@@ -11,12 +15,14 @@ const CaptchaSiteKey = import.meta.env.CAPTCHA_SITE_API_KEY;
   @import '../styles/contactForm.css';
 </style>
 
+
+
 <div>
   <div id="contact-container">
-    <h1 style="text-align: center;">Send me a message!</h1>
-    <pre>Got a question or just want to say hello? Go ahead.</pre>
     <form onsubmit="return false" data-message={CaptchaSiteKey}>
-      
+      <div id="contact-form">
+      <h1 style="text-align: center;">Send me a message!</h1>
+      <p>Got a question or just want to say hello? Go ahead.</p>
       <div style="float:left; width: 45%;">
         <input style="width: 100%; border-radius: 8px; height:30px" type="text" id="name" name="name" placeholder="your name"/>
       </div>
@@ -31,12 +37,19 @@ const CaptchaSiteKey = import.meta.env.CAPTCHA_SITE_API_KEY;
       <div >
         <textarea style="width: 100%; height:100px;border-radius: 8px;" id="message" name="message" placeholder="Lorem ipsum"/>
       </div>
-
-      <button id="email-button">Submit
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+    
+    </div>
+    <div id="email-sent" style="display: none; visibility:hidden;">
+      <h1>Message has sent</h1>
+      <h2>Thank you for your message i will try to get in touch as soon as possible.</h2>
+    </div>
+    <div id="email-fail" style="display: none; visibility:hidden;">
+      <h1>OOPS looks like sending emails is broken</h1>
+    </div>
+      <button id="email-button" class="button-unclicked">Submit
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
       </button >
     </form>
-
   </div>
 </div>
 
@@ -47,9 +60,32 @@ import { actions } from 'astro:actions';
 
 async function CaptchaCallback(token)
   {
-      const formData = new FormData(form);
+      const formData = new FormData(Form);
       formData.append("CaptchaToken",token);
-      await actions.SubmitFormAction(formData);
+      const { data, error } = await actions.SubmitFormAction(formData);
+
+      const formDiv = document.getElementById("contact-form");
+      formDiv.style.display = "none";
+      formDiv.style.visibility = "hidden";
+
+      const EmailSentDiv = document.getElementById("email-sent");
+      EmailSentDiv.style.display = "inline";
+      EmailSentDiv.style.visibility = "visible";
+
+      return;
+
+      if (error) {
+        const EmailFailDiv = document.getElementById("email-fail");
+        EmailFailDiv.style.display = "inline";
+        EmailFailDiv.style.visibility = "visible";
+        return;
+      }
+      else
+      {
+        const EmailSentDiv = document.getElementById("email-sent");
+        EmailSentDiv.style.display = "inline";
+        EmailSentDiv.style.visibility = "visible";
+      }
   };
   
 
@@ -82,14 +118,19 @@ async function CaptchaCallback(token)
         });
     });
   }
-
-  const form = document.querySelector('form');
- 
-
-  form?.addEventListener('submit', async (event) => {
+  
+  const Form = document.querySelector('form');
+  Form?.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    const captchaSiteKey = form.dataset.message;
+    const EmailButton = document.getElementById("email-button");
+    EmailButton.classList.add("button-clicked");
+    EmailButton.classList.remove("button-unclicked");
+
+    const ContactFormDiv = document.getElementById("contact-form");
+    ContactFormDiv.classList.add("animate-out-fade-right");
+    
+    const captchaSiteKey = Form.dataset.message;
     SendCapthca(captchaSiteKey);
     return false;
   })

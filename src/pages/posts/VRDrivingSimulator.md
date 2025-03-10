@@ -1,23 +1,18 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: 'My First Blog Post'
+title: 'VR driving simulator'
 SlideIndex: '0'
-description: 'This is the first post of my new Astro blog.'
-tags: ["astro", "blogging", "learning in public"]
+tags: ["astro", "blogging"]
 
 ---
 
+#VR driving simulator
+The simulator consists of a wooden frame equipped with a computer, steering wheel, pedals, and a VR headset.  
+This project has over 30 simulators deployed in schools and community centers. It uses Unreal Engine, primarily with C++ and minimal Blueprints.  
+I was solely responsible for building the quest system, VR interaction, and eye tracking system. I also worked on product assembly, sound, and C# utility applications to automate data processing.  
 
-Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
-
-## What I've accomplished
-
-1. **Installing Astro**: First, I created a new Astro project and set up my online accounts.
-
-2. **Making Pages**: I then learned how to make pages by creating new `.astro` files and placing them in the `src/pages/` folder.
-
-3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
-
-## What's next
-
-I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
+##Quest system
+The quest system was the first major system that i built.  
+It was developed in C++ and designed to evaluate driving performance. With support for quests that can pass, fail, or assign a dynamic score based on the user's data.  
+Quests are entered into an XML file or a data table. The quest system then parses the quests and continuously checks them against recorded data using a set of conditions.   
+If I were to do it again, I would create an interface in Unreal to build and manage quests, making the system more user-friendly.

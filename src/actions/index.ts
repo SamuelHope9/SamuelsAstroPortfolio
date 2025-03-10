@@ -40,6 +40,7 @@ export const server = {
             }
             
             //sendEmail(formData);
+            return `Fail`;
 
             return `Succsess`;
         }

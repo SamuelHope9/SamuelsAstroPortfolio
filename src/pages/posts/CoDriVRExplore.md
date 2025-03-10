@@ -1,23 +1,19 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: 'My First Blog Post'
+title: 'CoDriVR Explore'
 SlideIndex: '2'
-description: 'This is the first post of my new Astro blog.'
-tags: ["astro", "blogging", "learning in public"]
+tags: ["astro", "blogging"]
 
 ---
 
+#CoDriVR Explore
 
-Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
+We had a pivot from using dedicated computers to using standalone headsets. And this was our first project using standalone headsets. This was a tough challenge because standalone headsets are just phones strapped to your face, No where near as powerful as a dedicated gaming pc. So performance has become one of the most important factors moving forward.
 
-## What I've accomplished
+This project introduces overseas visitors to driving on New Zealand roads using standalone headsets. A pilot program will soon launch, with headsets available at an airport for users to try. Our team had four members, and I led the project. My contributions included developing the gameflow system, creating VR interactions, and assembling the final product.
 
-1. **Installing Astro**: First, I created a new Astro project and set up my online accounts.
+During this pivot I brought agile to the masses. Well our small team of four. I currently organize and manage the sprints. This has increased productivity. More surpisingly this has increased workplace enjoyment due to having defined set goals that the team can look back on and see their achievements.
+ 
+Also I built the company wiki to help with orginization and onboarding.
 
-2. **Making Pages**: I then learned how to make pages by creating new `.astro` files and placing them in the `src/pages/` folder.
-
-3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
-
-## What's next
-
-I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
+The real philisofical question though is if you game on a headset which uses mobile phone hardware does that make you mobile gamer and a true peasent.
