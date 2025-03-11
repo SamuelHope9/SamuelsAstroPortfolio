@@ -25,27 +25,41 @@ if (Astro.request.method === "POST") {
 <div class="home-page">
 
   <Page SectionID="home">
-    <div class="welcome-laptop-parent">
-      <div class="welcome-wrapper">
-        <div class="container">
-          <div class="inner-primary"><h1 class="Tittle">Welcome</h1></div>
-          <div class="inner-rest"><p class="WelcomeText">My name is Samuel Fisher, I am a programmer based in Dunedin NZ. I currently Specialize in C++ and Unreal Engine.</p></div>
+    <div class="side-container">
+      <div class="side-left">
+        <div class="vertCenter-outer">
+          <div class="vertCenter-middle">
+            <div class="vertCenter-inner">
+              <div class="container">
+                <div class="inner-primary"><h1 class="Tittle">Welcome</h1></div>
+                <div class="inner-rest"><p class="WelcomeText">My name is Samuel Fisher, I am a programmer based in Dunedin NZ. I currently Specialize in C++ and Unreal Engine.</p></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-        <div class="welcome-wrapper laptop-wrapper">
+      <div class="side-right">
+        <div class="vertCenter-outer">
+          <div class="vertCenter-middle">
+          <div class="vertCenter-inner">
           <picture>
             <source media="(max-width: 600px)" srcset={localLaptopMobileImage.src} />
             <source media="(min-width: 600px)" srcset={localLaptopImage.src} />
             <img src={localLaptopImage.src} alt="Laptop with code" />
           </picture>
         </div>
+      </div>
+        </div>
+      </div>
     </div>
   </Page>
   
   <Page SectionID="experiance">
     <div class="desktop">
-      <div id="experiance-container">
-        <ExperianceList/>
+      <div class="side-container">
+        <div class="side-left">
+          <ExperianceList/>
+        </div>
         <div id="divider"></div>
         <SkillsList/>
       </div>

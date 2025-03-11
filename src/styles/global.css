@@ -13,14 +13,14 @@
   }
   
 
-  @media (max-width: 600px) { 
+  @media (max-width: 800px) { 
     .desktop
     {
       display: none; 
       visibility: hidden;
     } 
   }
-  @media (min-width: 600px) { 
+  @media (min-width: 800px) { 
     .mobile
     {
       display: none; 
