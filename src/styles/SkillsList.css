@@ -1,11 +1,25 @@
-#skills
-{
-  margin-top: 5%;
-  height: 70%;
-  margin-bottom: 10%;
-  flex: 1;
-
+@media (max-width: 800px) { 
+  #skills
+  {
+    margin-top: 14%;
+    height: 70%;
+    margin-bottom: 10%;
+    flex: 1;
+  
+  }
 }
+@media (min-width: 800px) { 
+  #skills
+  {
+    margin-top: 5%;
+    height: 70%;
+    margin-bottom: 10%;
+    flex: 1;
+  
+  }
+}
+
+
 
 #skills-ul {
     display: grid;
