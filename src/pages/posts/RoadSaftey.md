@@ -7,4 +7,4 @@ tags: ["astro", "blogging"]
 
 ---
 
-#COMING SOON
+# COMING SOON
