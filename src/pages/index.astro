@@ -6,6 +6,7 @@ import Page from '../Layouts/Page.astro';
 import ExperianceList from '../components/ExperianceList.astro';
 import ContactForm from '../components/ContactForm.astro'
 import Carousel from '../components/Carousel.astro'
+import Carousel3 from '../components/Swiper2.astro'
 import SkillsList from '../components/SkillsList.astro'
 
 const pageTitle = "Home Page";
@@ -81,7 +82,7 @@ if (Astro.request.method === "POST") {
 
   <Page SectionID="projects">
     <div style="padding-top: 8%;">
-        <Carousel />
+        <Carousel/>
     </div>
   </Page>
 

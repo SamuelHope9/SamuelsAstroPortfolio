@@ -26,9 +26,9 @@ This is a custom C++ plugin for Unreal Engine that utilizes a graph and custom d
  The system uses a custom flowchart-like visual interface, enabling users to easily create complex game logic while also keeping it tidy.
 
 ______
-### Click me to see the documentation. 
-
+###  
 Newer documentation has been moved to our internal dokuwiki that I have setup and maintain
-______
 
-@todo add gameflow chart image here
+[Click me to see the old documentation.](https://docs.google.com/document/d/1XTZXMOd0_diHGPRxq9kYa3IIVmnLgNyfDsigd8woJFU/edit?usp=sharing)
+
+______

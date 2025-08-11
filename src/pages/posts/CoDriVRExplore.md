@@ -29,4 +29,4 @@ More surpisingly this has increased workplace enjoyment due to having defined se
  
 Also I built the company wiki to help with orginization and onboarding.
 
-The real philisofical question though is if you game on a headset which uses mobile phone hardware does that make you mobile gamer and a true peasent.
+The real philisofical question though is if you game on a headset which uses mobile phone hardware does that make you mobile gamer.

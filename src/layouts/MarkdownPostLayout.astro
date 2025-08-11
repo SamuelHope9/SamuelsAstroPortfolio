@@ -7,16 +7,14 @@ import '../styles/PostLayout.css';
 
 ---
 
-<BaseLayout HomePageLink=`/?slide=${frontmatter.slide}#projects`>
+<BaseLayout HomePageLink=`/?slide=${frontmatter.SlideIndex}#projects`>
     <!--<h1>${frontmatter.slide}</h1>-->
     </br>
     <!--<p><em>{frontmatter.description}</em></p>-->
 
     <!-- {frontmatter.SlideIndex} "/?slide=4#projects"-->
      <div id="blog-post">
-
     <slot />
-
     </div>
 
 </BaseLayout>

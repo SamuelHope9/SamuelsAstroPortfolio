@@ -10,12 +10,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/preact": "^3.5.3",
-    "@astrojs/react": "^4.2.1",
-    "@astrojs/tailwind": "^6.0.0",
-    "astro": "^5.4.1",
+    "@astrojs/preact": "^4.1.0",
+    "@astrojs/react": "^4.3.0",
+    "@astrojs/tailwind": "^6.0.2",
+    "astro": "^5.12.9",
+    "astro-swiper": "^1.0.1",
     "preact": "^10.24.1",
     "resend": "^4.1.2",
-    "swiper": "^11.2.1"
+    "swiper": "^11.2.10"
   }
 }

@@ -1,21 +1,29 @@
 .swiper {
-	width: 100%;
+	width: 80%;
 	padding-top: 50px;
 	padding-bottom: 50px;
   }
   
+  .swiperTest
+  {
+	display: block;
+	cursor: progress;
+  }
+
   .swiper-slide {
 	background-position: center;
 	background-size: cover;
 	background-color: #fff;
 	overflow: hidden;
 	border-radius: 8px;
+	&.swiper-slide-active{
+		transform: scale(1.2);
+	}
   }
-  .swiper-link
-  {
-	
+  .swiper-slide-active {
+	transform: translate3d(0, 0, 0) !important;
   }
-  
+
   .picture {
 	width: 450px;
 	height: 350px;

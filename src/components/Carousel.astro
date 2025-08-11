@@ -11,16 +11,12 @@ import Quest3 from "../images/Quest3Headset.png";
 
 
 ---
-
-
-
 <style>
 	@import '../styles/carousel.css';
 </style>
 
 <script>
 
-import { slide } from "astro:transitions";
 import Swiper from "swiper/bundle";
 
 import 'swiper/css';
@@ -28,53 +24,47 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/swiper-bundle.css';
 
+
 var swiper = new Swiper('.swiper', {
-    effect: 'coverflow',
-    grabCursor: true,
+    //effect: 'coverflow',
+    //grabCursor: false,
     centeredSlides: true,
+	preventClicks: false,
 	loop: true,
+	//touchStartPreventDefault:false,
     slidesPerView: 3,
-    coverflowEffect: {
-		scale: 0.9,
-		rotate: 60,
-        depth: 500,
-        modifier: 0.8,
-        slideShadows: true,
-      },
+	createElements: true,
+	slideToClickedSlide: true,
+	
+	navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  
 	  breakpoints: {
       0: { // when window >=0px - webflow mobile portriat
         slidesPerView: 1,
-        spaceBetween: -16,
+        spaceBetween: 25,
       },
       478: { // when window >= 478px - webflow mobile landscape
         slidesPerView: 2,
-        spaceBetween: -16,
+        spaceBetween: 25,
       },
       767: { // when window >= 767px - webflow tablet
         slidesPerView: 3,
-        spaceBetween: -16,
+        spaceBetween: 25,
       },
       988: { // when window >= 988px - webflow desktop
         slidesPerView: 3,
-        spaceBetween: -16,
+        spaceBetween: 25,
       },
       1920: { // when window >= 988px - webflow desktop
         slidesPerView: 3,
-        spaceBetween: -16,
+        spaceBetween: 25,
       }
     },
-
-      pagination: {
-        el: '.swiper-pagination',
-      },
     });
-
-	swiper.slides.forEach(slide => {
- 		slide.onclick = () => {
-    		swiper.slideToLoop(slide.dataset.swiperSlideIndex)
-
-  		}
-	})
+	
 
 
 
@@ -112,8 +102,8 @@ var swiper = new Swiper('.swiper', {
 	if(!isNaN(ParsedSlideNumb))
 	{
 		swiper.slideToLoop(ParsedSlideNumb);
+		ActivateLinks(swiper.slides[swiper.activeIndex],true);
 	}
-
 </script>
 
 
@@ -130,7 +120,7 @@ var swiper = new Swiper('.swiper', {
 				<picture>
 					<source media="(max-width: 799px)" srcset={VRDrivingSimulators.src} />
 					<source media="(min-width: 800px)" srcset={VRDrivingSimulators.src} />
-					<img src={VRDrivingSimulators.src} alt="VR Driving simulators" />
+					<img src={VRDrivingSimulators.src} loading="eager" alt="VR Driving simulators"/>
 				</picture>
 			</div>
 			<div class="detail">
@@ -147,7 +137,7 @@ var swiper = new Swiper('.swiper', {
 			<picture>
 				<source media="(max-width: 799px)" srcset={SideBySideSimulator.src} />
 				<source media="(min-width: 800px)" srcset={SideBySideSimulator.src} />
-				<img src={SideBySideSimulator.src} alt="SideBySideSimulator" />
+				<img src={SideBySideSimulator.src} loading="eager" alt="SideBySideSimulator" />
 			</picture>
 		</div>
 		<div class="detail">
@@ -157,14 +147,13 @@ var swiper = new Swiper('.swiper', {
 	</a>
 	  </div>
 
-
 	  <div class="swiper-slide" data-hash="GameFlow2" id="GameFlow2">
 		<a class="swiper-link" href="javascript:void(0)" rel="/posts/CoDriVRExplore/">
 		<div>
 		<div class="picture">
 			<source media="(max-width: 799px)" srcset={HeadsetRoad.src} />
 			<source media="(min-width: 800px)" srcset={HeadsetRoad.src} />
-			<img src={HeadsetRoad.src} alt="VR Driving simulators" />
+			<img src={HeadsetRoad.src} loading="eager" alt="VR Driving simulators" />
 		</div>
 		<div class="detail">
 		  <h3>CoDriVr explore</h3>
@@ -173,14 +162,13 @@ var swiper = new Swiper('.swiper', {
 		</a>
 	  </div>
 
-
 	  <div class="swiper-slide" data-hash="GameFlow9" id="GameFlow9">
 		<a class="swiper-link" href="javascript:void(0)" rel="/posts/RoadSaftey/">
 		<div>
 		<div class="picture">
 			<source media="(max-width: 799px)" srcset={Quest3.src} />
 			<source media="(min-width: 800px)" srcset={Quest3.src} />
-			<img src={Quest3.src} alt="VR Driving simulators" />
+			<img src={Quest3.src} loading="eager" alt="VR Driving simulators" />
 		</div>
 		<div class="detail">
 		  <h3>Road saftey</h3>
@@ -189,7 +177,6 @@ var swiper = new Swiper('.swiper', {
 		</a>
 	  </div>
 
-	
 	  	<div class="swiper-slide" data-hash="GameFlow" id="GameFlow">
 
 			<a class="swiper-link" href="javascript:void(0)" rel="/posts/GameFlow/">
@@ -197,7 +184,7 @@ var swiper = new Swiper('.swiper', {
 				<div class="picture">
 					<source media="(max-width: 799px)" srcset={GameflowGraph.src} />
 					<source media="(min-width: 800px)" srcset={GameflowGraph.src} />
-					<img src={GameflowGraph.src} alt="VR Driving simulators" />
+					<img src={GameflowGraph.src} loading="eager" alt="VR Driving simulators" />
 				</div>
 				<div class="detail">
 					<h3>Gameflow system</h3>
@@ -207,10 +194,12 @@ var swiper = new Swiper('.swiper', {
 			</a>
 
 		</div>
-
 	</div>
 
-  </div>
+	<div class="swiper-button-prev"></div>
+	<div class="swiper-button-next"></div>
 
+  </div>
+  
 </div>
 
